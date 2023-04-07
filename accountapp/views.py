@@ -17,7 +17,6 @@ def hello_world(request):
         new_hello_world.text = temp
         new_hello_world.save()
 
-        hello_world_list = HelloWorld.objects.all()
 
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
     else:
