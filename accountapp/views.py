@@ -24,9 +24,9 @@ def hello_world(request):
             new_hello_world.text = temp
             new_hello_world.save()
 
-            return HttpResponseRedirect(reverse('accountapp:hello_world'))
+            return HttpResponseRedirect(reverse('accountapp:hello_world')) #get 요청 , else 수행
         else:
-            hello_world_list = HelloWorld.objects.all()
+            hello_world_list = HelloWorld.objects.all() #장고의 ORM
             return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
 
 
@@ -48,7 +48,7 @@ class AccountDetailView(DetailView):
 
 class AccountUpdateView(UpdateView):
     model = User
-    context_object_name = 'target_user'
+    context_object_name = 'target_user' #별멍
     form_class = AccountUpdateForm
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
