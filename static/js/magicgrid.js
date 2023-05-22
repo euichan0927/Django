@@ -1,15 +1,5 @@
 'use strict';
 
-/**
- * @author emmanuelolaojo
- * @since 11/11/18
- */
-
-/**
- * Validates the configuration object.
- *
- * @param config - configuration object
- */
 var checkParams = function (config) {
   var DEFAULT_GUTTER = 25;
   var booleanProps = ["useTransform", "center"];
@@ -285,14 +275,19 @@ MagicGrid.prototype.listen = function listen () {
   else { this.getReady(); }
 };
 
-
 let magicGrid = new MagicGrid({
-
-    container: '.container',
-    animate: true,
-    gutter: 30,
-    static: true,
-    useMin: true,
+  container: '.container',
+  animate: true,
+  gutter: 30,
+  static: true,
+  useMin: true
 });
 
+var masonrys = document.getElementsByTagName("img");
+
+for (let i = 0; i < masonrys.length; i++){
+    masonrys[i].addEventListener('load', function(){
+        magicGrid.positionItems();
+    }, false);
+}
 magicGrid.listen();
