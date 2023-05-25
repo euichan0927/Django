@@ -1,4 +1,5 @@
 from audioop import reverse
+from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -57,4 +58,4 @@ class ArticleDeleteView(DeleteView):
     template_name = 'articleapp/delete.html'
 
     def get_success_url(self):
-        return reverse_lazy('articleapp:detail',kwargs={'pk': self.object.pk})
+        return reverse('articleapp:detail',kwargs={'pk': self.object.pk})

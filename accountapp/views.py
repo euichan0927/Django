@@ -26,7 +26,7 @@ def hello_world(request):
 
             return HttpResponseRedirect(reverse('accountapp:hello_world')) #get 요청 , else 수행
         else:
-            hello_world_list = HelloWorld.objects.all() #장고의 ORM
+            hello_world_list = HelloWorld.objects.all() #장고의 ORM ,class 변수
             return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
 
 
@@ -45,7 +45,6 @@ class AccountDetailView(DetailView):
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
-
 class AccountUpdateView(UpdateView):
     model = User
     context_object_name = 'target_user' #별멍
