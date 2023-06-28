@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+
 {% load static %}
 
-{% block content %}
+
 <style>
 
 
@@ -9,6 +9,10 @@
         padding: 0;
         margin: 0, auto;
 
+    }
+    .container a {
+        width: 45%;
+        max-width: 250px;
     }
 
     .container div {
@@ -20,9 +24,7 @@
     }
 
     .container img {
-      width: 7rem;
-      height: 7rem;
-      object-fit:cover;
+      width: 100%
       border-radius: 1rem;
     }
 
@@ -51,4 +53,3 @@
     </div>
 
 
-{% endblock %}
